@@ -1,18 +1,18 @@
 const routes = [
   {
-    path: '/',
-    component: () => import('layouts/MainLayout.vue'),
+    path: "/",
+    component: () => import("layouts/MainLayout.vue"),
     children: [
-      { path: '', component: () => import('pages/IndexPage.vue') }
-    ]
+      // We set our TaskPage as the default child
+      { path: "", component: () => import("pages/TaskPage.vue") },
+    ],
   },
 
-  // Always leave this as last one,
-  // but you can also remove it
+  // Capture and display 404 errors
   {
-    path: '/:catchAll(.*)*',
-    component: () => import('pages/ErrorNotFound.vue')
-  }
-]
+    path: "/:catchAll(.*)*",
+    component: () => import("pages/ErrorNotFound.vue"),
+  },
+];
 
-export default routes
+export default routes;
